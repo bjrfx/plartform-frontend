@@ -30,6 +30,6 @@ jobs:
       - name: Deploy to Azure App Service
         uses: azure/webapps-deploy@v3
         with:
-          app-name: "reco-v2-staging-server" # Replace with your Azure App Service name
+          app-name: "plartform-frontend" # Replace with your Azure App Service name
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
           package: release.zip
