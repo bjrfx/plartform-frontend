@@ -58,5 +58,5 @@ jobs:
         with:
           app-name: 'plartform-frontend'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}  # ✅ Ensure this matches your GitHub secret name
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2A7D72FED96840C6905A6887CE360832 }}  # ✅ Ensure this matches your GitHub secret name
           package: .
