@@ -37,5 +37,5 @@ jobs:
         with:
           app-name: "plartform-frontend" # Replace with your Azure App Service name
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
-          package: release.zip
+          package: build.zip
           slot-name: production
