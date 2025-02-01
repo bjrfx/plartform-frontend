@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Set up Node.js version
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4  # ✅ Updated from v3 to v4
         with:
           node-version: '20.x'
 
@@ -31,7 +31,7 @@ jobs:
         run: zip release.zip ./* -r
 
       - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4  # ✅ Updated from v3 to v4
         with:
           name: node-app
           path: release.zip
@@ -45,7 +45,7 @@ jobs:
 
     steps:
       - name: Download artifact from build job
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4  # ✅ Updated from v3 to v4
         with:
           name: node-app
 
@@ -54,9 +54,9 @@ jobs:
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
-        uses: azure/webapps-deploy@v2
+        uses: azure/webapps-deploy@v3  # ✅ Updated from v2 to v3
         with:
           app-name: 'plartform-frontend'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2A7D72FED96840C6905A6887CE360832 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}  # ✅ Ensure this matches your GitHub secret name
           package: .
