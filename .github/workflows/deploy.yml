@@ -27,9 +27,15 @@ jobs:
       - name: Zip application for deployment
         run: zip -r release.zip . -x "node_modules/*" ".git/*"
 
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
       - name: Deploy to Azure App Service
         uses: azure/webapps-deploy@v3
         with:
           app-name: "plartform-frontend" # Replace with your Azure App Service name
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
           package: release.zip
+          slot-name: production
